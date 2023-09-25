@@ -10,7 +10,7 @@ int main() {
             computer_choice_3 = "scissors", computer_choice, playerChoice;
     srand(time(0));
     cout << "Welcome to rock, paper, scissors!" << endl;
-    while ((computer_score + user_score) < (2 * winning_score - 1)) {
+    do {
         int random = rand() % 3;
         if (random == 0)
             computer_choice = computer_choice_1;
@@ -53,11 +53,12 @@ int main() {
         } else if (computer_choice == "scissors" && playerChoice == "scissors") {
             cout << "Both you and the computer played scissors! No one wins this round.\n";
         }
-    }
+    } while (computer_score < 3 && user_score < 3);
+
     if (computer_score == winning_score) {
-        cout << "The computer wins!" << endl;
+        cout << endl << "The computer wins!" << endl;
     } else if (user_score == winning_score) {
-        cout << "The player wins!" << endl;
+        cout << endl << "The player wins!" << endl;
     }
     cout << "Final Scores" << endl;
     cout << "---------------" << endl;
